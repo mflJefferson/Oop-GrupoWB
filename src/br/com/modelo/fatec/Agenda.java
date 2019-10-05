@@ -162,15 +162,36 @@ public class Agenda {
 		i = dif1.getYears();
 		return i;	
 	}
+	public void editarCliente() throws ParseException {
+		System.out.println("Qual Cliente você deseja editar?");
+		Controle ctrl = new Controle();
+		String nome = ctrl.texto();
+		for(Cliente c: clientes) {
+			if (c.getNome().equalsIgnoreCase(nome)) {
+				System.out.println("Entre com o novo nome: ");
+				c.setNome(ctrl.texto());
+				System.out.println("Seu novo telefone: ");
+				c.setTelefone(ctrl.texto());
+				System.out.println("O dia de seu nascimento (AAAA/MM/DD): ");
+				c.setDtNascimento(ctrl.texto());
+				c.setIdade(conversaoIdade(c.getDtNascimento()));
+			}
+			else {
+				System.out.println("Não há cliente com esse nome");
+			}
+		}
+		
+		
+	}
 	
 	
-	public void removerCadastro(){
+	public void removerCliente(){
 		System.out.println("Qual Cliente você deseja excluir?");
 		Controle ctrl = new Controle();
 		String nome = ctrl.texto();
 		Predicate<Cliente> condition = cliente -> cliente.getNome().equalsIgnoreCase(nome);
 		clientes.removeIf(condition);
-		} //Funcionou C#r%lh@
+		} //Funcionou C#r%lh@ predicate removeIf best method
 	
 	public void sair() throws ParseException{
 		System.exit(0); 	

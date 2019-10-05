@@ -31,8 +31,11 @@ public class App {
 			if(opcao == 5) {
 				ag.listarClienteGeneroM();
 			}
-			if(opcao ==6) {
-				ag.removerCadastro();
+			if(opcao == 6) {
+				ag.editarCliente();
+			}
+			if(opcao == 7) {
+				ag.removerCliente();
 			}
 			
 		}
