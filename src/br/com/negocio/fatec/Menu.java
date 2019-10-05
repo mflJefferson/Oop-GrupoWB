@@ -12,7 +12,7 @@ public class Menu {
 		System.out.println("4 - Listar clientes do genero feminino");
 		System.out.println("5 - Listar clientes do genero masculino");
 		System.out.println("3 - Editar cliente");
-		System.out.println("4 - Excluir cliente");
+		System.out.println("6 - Excluir cliente");
 		System.out.println("0 - Sair");
 	}
 }

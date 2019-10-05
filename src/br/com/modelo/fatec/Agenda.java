@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.function.Predicate;
 
 import br.com.negocio.fatec.Controle;
 
@@ -57,7 +58,7 @@ public class Agenda {
 		Controle ctrl = new Controle();
 		Cliente c = new Cliente(ctrl.texto());
 		c.nome = (ctrl.texto());
-		System.out.println("Por favor, digite um telefonome para o contato");
+		System.out.println("Por favor, digite um telefone para o contato");
 		c.telefone = (ctrl.texto());
 		System.out.println("Por favor, digite a data de seu nascimento (AAAA/MM/DD)");
 		c.dtNascimento = (ctrl.texto());
@@ -69,10 +70,17 @@ public class Agenda {
 		System.out.println("### Qual serviço/produto você utiliza? ###");
 		System.out.println("1 - Manicure");
 		System.out.println("2 - Pedicure");
-		System.out.println("3 - Remoção de rugas");
-		System.out.println("4 - Aplicação de botox");
-		System.out.println("5 - Corte de cabelo");
-		System.out.println("6 - Corte de barba");
+		System.out.println("3 - Pintura de cabelo");
+		System.out.println("4 - Remoção de rugas");
+		System.out.println("5 - Remoção de manchas na pele");
+		System.out.println("6 - Aplicação de botox");
+		System.out.println("7 - Tratamento para emagrecimento");
+		System.out.println("8 - Redução de medidas");
+		System.out.println("9 - Corte de cabelo");
+		System.out.println("10 - Modelagem");
+		System.out.println("11 - Corte de barba");
+		System.out.println("12 - Tratamento para queda de cabelo");
+		System.out.println("13 - Venda de produtos especializados");
 		System.out.println("0 - Terminar cadastro");
 		int op = 100;
 		while (op != 0) {
@@ -86,19 +94,47 @@ public class Agenda {
 				break;
 			}
 			case 3:{
-				c.servicos.add("Remoção de rugas");
+				c.servicos.add("Pintura de cabelo");
 				break;
 			}
 			case 4:{
-				c.servicos.add("Aplicação de botox");
+				c.servicos.add("Remoção de rugas");
 				break;
 			}
 			case 5:{
-				c.servicos.add("Corte de cabelo");
+				c.servicos.add("Remoção de manchas na pele");
 				break;
 			}
 			case 6:{
+				c.servicos.add("Aplicação de botox");
+				break;
+			}
+			case 7:{
+				c.servicos.add("Tratamento para emagrecimento");
+				break;
+			}
+			case 8:{
+				c.servicos.add("Redução de medidas");
+				break;
+			}
+			case 9:{
+				c.servicos.add("Corte de cabelo");
+				break;
+			}
+			case 10:{
+				c.servicos.add("Modelagem");
+				break;
+			}
+			case 11:{
 				c.servicos.add("Corte de barba");
+				break;
+			}
+			case 12:{
+				c.servicos.add("Tratamento para queda de cabelo");
+				break;
+			}
+			case 13:{
+				c.servicos.add("Venda de produtos especializados");
 				break;
 			}
 			case 0:{
@@ -127,18 +163,14 @@ public class Agenda {
 		return i;	
 	}
 	
-	public Cliente getCliente(String nome) {
-		for(Cliente c: clientes) {
-			if(c.getNome().equalsIgnoreCase(nome)) {
-				return c;
-			}
-		}
-		return null;
-	}
 	
-	public void removerCadastro(int x){
-		clientes.remove(x);
-	}
+	public void removerCadastro(){
+		System.out.println("Qual Cliente você deseja excluir?");
+		Controle ctrl = new Controle();
+		String nome = ctrl.texto();
+		Predicate<Cliente> condition = cliente -> cliente.getNome().equalsIgnoreCase(nome);
+		clientes.removeIf(condition);
+		} //Funcionou C#r%lh@
 	
 	public void sair() throws ParseException{
 		System.exit(0); 	

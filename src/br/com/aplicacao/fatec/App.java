@@ -31,6 +31,9 @@ public class App {
 			if(opcao == 5) {
 				ag.listarClienteGeneroM();
 			}
+			if(opcao ==6) {
+				ag.removerCadastro();
+			}
 			
 		}
 		c = new Controle();
