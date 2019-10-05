@@ -21,7 +21,7 @@ public class Agenda {
 		for (Cliente cliente : clientes) {
 			System.out.println("Nome: " + cliente.getNome());
 			System.out.println("Telefone: " + cliente.getTelefone());
-			System.out.println("Idade: " + cliente.getIdade());
+			System.out.println("Idade: " + cliente.getIdade() + "Anos");
 			System.out.println("Genero: " + cliente.getGenero());
 		}
 	}
@@ -60,17 +60,9 @@ public class Agenda {
 		c.telefone = (ctrl.texto());
 		System.out.println("Por favor, digite a data de seu nascimento (AAAA/MM/DD)");
 		c.dtNascimento = (ctrl.texto());
-		Date d = sdf.parse(c.dtNascimento);
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(d);
-		int ano = cal.get(Calendar.YEAR);
-		int mes = cal.get(Calendar.MONTH) + 1;
-		int dia = cal.get(Calendar.DATE);
-		LocalDate l1 = LocalDate.of(ano, mes, dia);
-		LocalDate a1 = LocalDate.now();
-		c.id = a1.toEpochDay();
-		Period dif1 = Period.between(l1, a1);
-		c.idade = dif1.getYears();
+		LocalDate a2 = LocalDate.now();
+		c.id = a2.toEpochDay();
+		c.idade = conversaoIdade(c.dtNascimento);
 		System.out.println("Por favor, digite o seu genero: ");
 		c.genero = (ctrl.texto());
 		Servico s = new Servico(ctrl.texto());
@@ -78,6 +70,21 @@ public class Agenda {
 		s.nomeServico = (ctrl.texto());
 		c.servicos.add(s);
 		clientes.add(c);
+	}
+	
+	public int conversaoIdade(String dtNascimento) throws ParseException {
+		int i;
+		Date d = sdf.parse(dtNascimento);
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(d);
+		int ano = cal.get(Calendar.YEAR);
+		int mes = cal.get(Calendar.MONTH) + 1;
+		int dia = cal.get(Calendar.DATE);
+		LocalDate l1 = LocalDate.of(ano, mes, dia);
+		LocalDate a1 = LocalDate.now();
+		Period dif1 = Period.between(l1, a1);
+		i = dif1.getYears();
+		return i;	
 	}
 	
 	public Cliente getCliente(String nome) {
