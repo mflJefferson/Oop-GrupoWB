@@ -21,8 +21,9 @@ public class Agenda {
 		for (Cliente cliente : clientes) {
 			System.out.println("Nome: " + cliente.getNome());
 			System.out.println("Telefone: " + cliente.getTelefone());
-			System.out.println("Idade: " + cliente.getIdade() + "Anos");
+			System.out.println("Idade: " + cliente.getIdade() + " Anos");
 			System.out.println("Genero: " + cliente.getGenero());
+			System.out.println("Serviços/Produtos " +cliente.getServicos());
 		}
 	}
 	
@@ -65,10 +66,49 @@ public class Agenda {
 		c.idade = conversaoIdade(c.dtNascimento);
 		System.out.println("Por favor, digite o seu genero: ");
 		c.genero = (ctrl.texto());
-		Servico s = new Servico(ctrl.texto());
-		System.out.println("Por favor, digite o serviço/produto que você utiliza: ");
-		s.nomeServico = (ctrl.texto());
-		c.servicos.add(s);
+		System.out.println("### Qual serviço/produto você utiliza? ###");
+		System.out.println("1 - Manicure");
+		System.out.println("2 - Pedicure");
+		System.out.println("3 - Remoção de rugas");
+		System.out.println("4 - Aplicação de botox");
+		System.out.println("5 - Corte de cabelo");
+		System.out.println("6 - Corte de barba");
+		System.out.println("0 - Terminar cadastro");
+		int op = 100;
+		while (op != 0) {
+			switch(ctrl.opcao()) {
+			case 1:{
+				c.servicos.add("Manicure");
+				break;
+			}
+			case 2:{
+				c.servicos.add("Pedicure");
+				break;
+			}
+			case 3:{
+				c.servicos.add("Remoção de rugas");
+				break;
+			}
+			case 4:{
+				c.servicos.add("Aplicação de botox");
+				break;
+			}
+			case 5:{
+				c.servicos.add("Corte de cabelo");
+				break;
+			}
+			case 6:{
+				c.servicos.add("Corte de barba");
+				break;
+			}
+			case 0:{
+				op = 0;
+				break;
+			}
+			
+			}
+			
+		}
 		clientes.add(c);
 	}
 	

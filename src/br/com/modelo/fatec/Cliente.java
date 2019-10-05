@@ -10,7 +10,23 @@ public class Cliente {
 	public String genero;
 	public int idade;
 	public long id;
-	public List<Servico> servicos = new ArrayList<Servico>();
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public List<String> getServicos() {
+		return servicos;
+	}
+
+	public void setServicos(List<String> servicos) {
+		this.servicos = servicos;
+	}
+
+	public List<String> servicos = new ArrayList<String>();
 	
 	public String getNome() {
 		return nome;

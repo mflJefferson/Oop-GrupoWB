@@ -9,10 +9,10 @@ public class Menu {
 		System.out.println("1 - Inserir cliente");
 		System.out.println("2 - Listar cliente");
 		System.out.println("3 - Listar cliente de forma alfabética");
-		System.out.println("3 - Listar clientes do genero feminino");
-		System.out.println("3 - Listar clientes do genero masculino");
-		
-		System.out.println("4 - Excluir contato");
+		System.out.println("4 - Listar clientes do genero feminino");
+		System.out.println("5 - Listar clientes do genero masculino");
+		System.out.println("3 - Editar cliente");
+		System.out.println("4 - Excluir cliente");
 		System.out.println("0 - Sair");
 	}
 }
