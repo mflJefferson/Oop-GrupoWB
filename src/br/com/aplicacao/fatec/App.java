@@ -37,6 +37,24 @@ public class App {
 			if(opcao == 7) {
 				ag.removerCliente();
 			}
+//			if(opcao == 8) {
+//				ag.idadeMedia()
+//			}
+//			if(opcao == 9) {
+//				ag.idadeMediaF(){
+//			}
+//			if (opcao == 10) {
+//				idadeMediaM
+//			}
+//			if (opcao == 11) {
+//				maisPopular()
+//			}
+//			if (opcao == 12) {
+//				maisPopularPorGenero()
+//			}
+			if (opcao == 0) {
+				ag.sair();
+			}
 			
 		}
 		c = new Controle();
