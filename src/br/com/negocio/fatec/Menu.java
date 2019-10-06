@@ -13,6 +13,7 @@ public class Menu {
 		System.out.println("5 - Listar clientes do genero masculino");
 		System.out.println("6 - Editar cliente");
 		System.out.println("7 - Excluir cliente");
+		System.out.println("8 - Mostrar idade média dos clientes");
 		System.out.println("0 - Sair");
 	}
 }

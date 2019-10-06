@@ -25,6 +25,7 @@ public class Agenda {
 			System.out.println("Idade: " + cliente.getIdade() + " Anos");
 			System.out.println("Genero: " + cliente.getGenero());
 			System.out.println("Serviços/Produtos " +cliente.getServicos());
+			System.out.println("");
 		}
 	}
 	
@@ -54,9 +55,9 @@ public class Agenda {
 	}
 
 	public void inserirClientes() throws ParseException {
-		System.out.println("Por favor, digite um nome para o contato");
 		Controle ctrl = new Controle();
-		Cliente c = new Cliente(ctrl.texto());
+		Cliente c = new Cliente(null);
+		System.out.println("Por favor, digite um nome para o contato");
 		c.nome = (ctrl.texto());
 		System.out.println("Por favor, digite um telefone para o contato");
 		c.telefone = (ctrl.texto());
@@ -194,7 +195,20 @@ public class Agenda {
 		} //Funcionou C#r%lh@ predicate removeIf best method
 	
 	public void sair() throws ParseException{
-		System.exit(0); 	
+		System.exit(0); 
+	}
+	public int idadeMedia() {
+		int idade = 0;
+		int size = 0;
+		int m = 0;
+		for(Cliente c: clientes) {
+			idade = idade + c.getIdade();
+			size = clientes.size();
+		}
+		m = idade / size;
+		System.out.println("A idade média de todos nossos clientes é: " + m);
+		return m;
+	
 	}
 	
 }

@@ -36,9 +36,9 @@ public class Cliente {
 	
 	public Cliente(String texto) {
 		nome = texto;
-		
 	}
 	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}

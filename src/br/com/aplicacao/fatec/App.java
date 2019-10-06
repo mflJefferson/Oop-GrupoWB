@@ -9,7 +9,7 @@ public class App {
 		Menu neymar = new Menu();
 		Agenda ag = new Agenda();
 		Controle c = new Controle();
-		//c.carregar(ag);
+		c.carregar(ag);
 		neymar.boasVindas();
 		int opcao = 100;
 		while(opcao != 0) {
@@ -37,27 +37,27 @@ public class App {
 			if(opcao == 7) {
 				ag.removerCliente();
 			}
-//			if(opcao == 8) {
-//				ag.idadeMedia()
-//			}
+			if(opcao == 8) {
+				ag.idadeMedia();
+			}
 //			if(opcao == 9) {
-//				ag.idadeMediaF(){
+//				ag.idadeMediaF();
 //			}
 //			if (opcao == 10) {
-//				idadeMediaM
+//				ag.idadeMediaM();
 //			}
 //			if (opcao == 11) {
-//				maisPopular()
+//				ag.maisPopular();
 //			}
 //			if (opcao == 12) {
-//				maisPopularPorGenero()
+//				ag.maisPopularPorGenero();
 //			}
 			if (opcao == 0) {
-				ag.sair();
+				//ag.sair(); Tava saindo antes de salvar :)
+				break;
 			}
 			
 		}
-		c = new Controle();
 		c.salvar(ag);
 		
 	}

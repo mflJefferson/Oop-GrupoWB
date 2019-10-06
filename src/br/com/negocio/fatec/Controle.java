@@ -49,6 +49,14 @@ public class Controle {
 		for(Cliente c : ag.clientes) {
 			bwr.write(c.getNome());
 			bwr.newLine();
+			bwr.write(c.getTelefone());
+			bwr.newLine();
+			bwr.write(c.getDtNascimento());
+			bwr.newLine();
+			bwr.write(c.getIdade());
+			bwr.newLine();
+			bwr.write(c.getGenero());
+			bwr.newLine();
 		}
 		bwr.close();
 	}
