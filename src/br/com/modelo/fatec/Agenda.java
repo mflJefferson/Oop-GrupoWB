@@ -208,7 +208,35 @@ public class Agenda {
 		m = idade / size;
 		System.out.println("A idade média de todos nossos clientes é: " + m);
 		return m;
+	}
+	public int idadeMediaF() {
+		int idade = 0;
+		int size = 0;
+		int m = 0;
+		for(Cliente c: clientes) {
+			if (c.genero.equalsIgnoreCase("F")) {
+				idade = idade + c.getIdade();
+				size++;
+			}
+		}
+		m = idade / size;
+		System.out.println("A idade média de nossas clientes é: " + m);
+		return m;
+	}
 	
+	public int idadeMediaM() {
+		int idade = 0;
+		int size = 0;
+		int m = 0;
+		for(Cliente c: clientes) {
+			if (c.genero.equalsIgnoreCase("M")) {
+				idade = idade + c.getIdade();
+				size++;
+			}
+		}
+		m = idade / size;
+		System.out.println("A idade média de nossos clientes é: " + m);
+		return m;
 	}
 	
 }

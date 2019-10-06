@@ -40,12 +40,12 @@ public class App {
 			if(opcao == 8) {
 				ag.idadeMedia();
 			}
-//			if(opcao == 9) {
-//				ag.idadeMediaF();
-//			}
-//			if (opcao == 10) {
-//				ag.idadeMediaM();
-//			}
+			if(opcao == 9) {
+				ag.idadeMediaF();
+			}
+			if (opcao == 10) {
+				ag.idadeMediaM();
+			}
 //			if (opcao == 11) {
 //				ag.maisPopular();
 //			}
@@ -53,12 +53,13 @@ public class App {
 //				ag.maisPopularPorGenero();
 //			}
 			if (opcao == 0) {
-				//ag.sair(); Tava saindo antes de salvar :)
+				//ag.sair(); Estava saindo antes de salvar
 				break;
 			}
 			
 		}
 		c.salvar(ag);
+		ag.sair();
 		
 	}
 }
