@@ -17,6 +17,7 @@ import br.com.negocio.fatec.Controle;
 @SuppressWarnings("serial")
 public class Agenda implements Serializable{
 	public List<Cliente> clientes = new ArrayList<Cliente>();
+	public List<Servico> servicos = new ArrayList<Servico>();
 	transient SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 	
 
@@ -26,8 +27,13 @@ public class Agenda implements Serializable{
 			System.out.println("Telefone: " + cliente.getTelefone());
 			System.out.println("Idade: " + cliente.getIdade() + " Anos");
 			System.out.println("Genero: " + cliente.getGenero());
-			System.out.println("Serviços/Produtos " +cliente.getServicos());
-			System.out.println("");
+			
+//			System.out.println("Nome: " + cliente.getNome());
+//			System.out.println("Telefone: " + cliente.getTelefone());
+//			System.out.println("Idade: " + cliente.getIdade() + " Anos");
+//			System.out.println("Genero: " + cliente.getGenero());
+//			System.out.println("Serviços/Produtos " + Ser);
+//			System.out.println("");
 		}
 	}
 	
@@ -65,7 +71,11 @@ public class Agenda implements Serializable{
 		c.telefone = (ctrl.texto());
 		System.out.println("Por favor, digite a data de seu nascimento (AAAA/MM/DD)");
 		c.dtNascimento = (ctrl.texto());
-		c.idade = conversaoIdade(c.dtNascimento);
+		try {
+			c.setIdade(conversaoIdade(c.dtNascimento));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		System.out.println("Por favor, digite o seu genero: ");
 		c.genero = (ctrl.texto());
 		System.out.println("### Qual serviço/produto você utiliza? ###");
@@ -83,66 +93,105 @@ public class Agenda implements Serializable{
 		System.out.println("12 - Tratamento para queda de cabelo");
 		System.out.println("13 - Venda de produtos especializados");
 		System.out.println("0 - Terminar cadastro");
+		Servico s = new Servico();
 		int op = 100;
 		while (op != 0) {
 			switch(ctrl.opcao()) {
 			case 1:{
-				c.servicos.add("Manicure");
+				s.nomeServico = ("Manicure");
+				s.setsGenero(c.getGenero());
+				s.setCont(1);
+				servicos.add(s);
 				break;
 			}
 			case 2:{
-				c.servicos.add("Pedicure");
+				s.nomeServico = ("Pedicure");
+				s.setsGenero(c.getGenero());
+				s.setCont(1);
+				servicos.add(s);
 				break;
 			}
 			case 3:{
-				c.servicos.add("Pintura de cabelo");
+				s.nomeServico = ("Pintura de cabelo");
+				s.setsGenero(c.getGenero());
+				s.setCont(1);
+				servicos.add(s);
 				break;
 			}
 			case 4:{
-				c.servicos.add("Remoção de rugas");
+				s.nomeServico = ("Remoção de rugas");
+				s.setsGenero(c.getGenero());
+				s.setCont(1);
+				servicos.add(s);
 				break;
 			}
 			case 5:{
-				c.servicos.add("Remoção de manchas na pele");
+				s.nomeServico = ("Remoção de machas na pele");
+				s.setsGenero(c.getGenero());
+				s.setCont(1);
+				servicos.add(s);
 				break;
 			}
 			case 6:{
-				c.servicos.add("Aplicação de botox");
+				s.nomeServico = ("Aplicação de botox");
+				s.setsGenero(c.getGenero());
+				s.setCont(1);
+				servicos.add(s);
 				break;
 			}
 			case 7:{
-				c.servicos.add("Tratamento para emagrecimento");
+				s.nomeServico = ("Tratamento para emagrecimento");
+				s.setsGenero(c.getGenero());
+				s.setCont(1);
+				servicos.add(s);
 				break;
 			}
 			case 8:{
-				c.servicos.add("Redução de medidas");
+				s.nomeServico = ("Redução de medidas");
+				s.setsGenero(c.getGenero());
+				s.setCont(1);
+				servicos.add(s);
 				break;
 			}
 			case 9:{
-				c.servicos.add("Corte de cabelo");
+				s.nomeServico = ("Corte de cabelo");
+				s.setsGenero(c.getGenero());
+				s.setCont(1);
+				servicos.add(s);
 				break;
 			}
 			case 10:{
-				c.servicos.add("Modelagem");
+				s.nomeServico = ("Modelagem");
+				s.setsGenero(c.getGenero());
+				s.setCont(1);
+				servicos.add(s);
 				break;
 			}
 			case 11:{
-				c.servicos.add("Corte de barba");
+				s.nomeServico = ("Corte de barba");
+				s.setsGenero(c.getGenero());
+				s.setCont(1);
+				servicos.add(s);
 				break;
 			}
 			case 12:{
-				c.servicos.add("Tratamento para queda de cabelo");
+				s.nomeServico = ("Tratamento para queda de cabelo");
+				s.setsGenero(c.getGenero());
+				s.setCont(1);
+				servicos.add(s);
 				break;
 			}
 			case 13:{
-				c.servicos.add("Venda de produtos especializados");
+				s.nomeServico = ("Venda de produtos especializados");
+				s.setsGenero(c.getGenero());
+				s.setCont(1);
+				servicos.add(s);
 				break;
 			}
 			case 0:{
 				op = 0;
 				break;
 			}
-			
 			}
 			
 		}
@@ -237,6 +286,43 @@ public class Agenda implements Serializable{
 		m = idade / size;
 		System.out.println("A idade média de nossos clientes é: " + m);
 		return m;
+	}
+	public void maisPopular() {
+		int maior = 0;
+		for (Servico s : servicos) {
+			if (s.getCont() > maior) {
+				maior = s.getCont();
+				Servico max = new Servico(s);
+				max = s;
+				System.out.println("O serviço mais popular é o:" + max.getNomeServico());
+			}
+		}
+	}
+	public void maisPopularF() {
+		int maior = 0;
+		for (Servico s : servicos) {
+			if (s.getsGenero().equalsIgnoreCase("F")) {
+				if (s.getCont() > maior) {
+					maior = s.getCont();
+					Servico max = new Servico(s);
+					max = s;
+					System.out.println("O serviço mais popular entre as mulheres é o:" + max.getNomeServico());
+				}
+			}
+		}
+	}
+	public void maisPopularM() {
+		int maior = 0;
+		for (Servico s : servicos) {
+			if (s.getsGenero().equalsIgnoreCase("M")) {
+				if (s.getCont() > maior) {
+					maior = s.getCont();
+					Servico max = new Servico(s);
+					max = s;
+					System.out.println("O serviço mais popular entre os homens é o:" + max.getNomeServico());
+				}
+			}
+		}
 	}
 	
 }

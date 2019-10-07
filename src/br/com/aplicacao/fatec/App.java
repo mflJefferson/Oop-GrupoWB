@@ -51,12 +51,15 @@ public class App {
 			if (opcao == 10) {
 				ag.idadeMediaM();
 			}
-//			if (opcao == 11) {
-//				ag.maisPopular();
-//			}
-//			if (opcao == 12) {
-//				ag.maisPopularPorGenero();
-//			}
+			if (opcao == 11) {
+
+			}
+			if (opcao == 12) {
+				ag.maisPopularF();
+			}
+			if (opcao == 13) {
+				ag.maisPopularM();
+			}
 			if (opcao == 0) {
 				//ag.sair(); Estava saindo antes de salvar
 				break;

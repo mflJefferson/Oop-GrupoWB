@@ -11,17 +11,16 @@ public class Cliente implements Serializable {
 	public String dtNascimento;
 	public String genero;
 	public int idade;
+	public List<Servico> s = new ArrayList<Servico>();
 
-	public List<String> getServicos() {
-		return servicos;
+	public List<Servico> getS() {
+		return s;
 	}
 
-	public void setServicos(List<String> servicos) {
-		this.servicos = servicos;
+	public void setS(List<Servico> s) {
+		this.s = s;
 	}
 
-	public List<String> servicos = new ArrayList<String>();
-	
 	public String getNome() {
 		return nome;
 	}
