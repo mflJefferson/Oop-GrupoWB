@@ -27,13 +27,8 @@ public class Agenda implements Serializable{
 			System.out.println("Telefone: " + cliente.getTelefone());
 			System.out.println("Idade: " + cliente.getIdade() + " Anos");
 			System.out.println("Genero: " + cliente.getGenero());
-			
-//			System.out.println("Nome: " + cliente.getNome());
-//			System.out.println("Telefone: " + cliente.getTelefone());
-//			System.out.println("Idade: " + cliente.getIdade() + " Anos");
-//			System.out.println("Genero: " + cliente.getGenero());
-//			System.out.println("Serviços/Produtos " + Ser);
-//			System.out.println("");
+//			System.out.println("Produtos/Serviços: " + cliente.getServico().nomeServico);
+			System.out.println("");
 		}
 	}
 	
@@ -64,6 +59,7 @@ public class Agenda implements Serializable{
 
 	public void inserirClientes() throws ParseException {
 		Controle ctrl = new Controle();
+		Servico servico = new Servico();
 		Cliente c = new Cliente(null);
 		System.out.println("Por favor, digite um nome para o contato");
 		c.nome = (ctrl.texto());
@@ -93,103 +89,104 @@ public class Agenda implements Serializable{
 		System.out.println("12 - Tratamento para queda de cabelo");
 		System.out.println("13 - Venda de produtos especializados");
 		System.out.println("0 - Terminar cadastro");
-		Servico s = new Servico();
+		
 		int op = 100;
 		while (op != 0) {
 			switch(ctrl.opcao()) {
 			case 1:{
-				s.nomeServico = ("Manicure");
-				s.setsGenero(c.getGenero());
-				s.setCont(1);
-				servicos.add(s);
+				servico.nomeServico = ("Manicure");
+				servico.setsGenero(c.getGenero());
+				servico.setCont(1);
+				servicos.add(servico);
 				break;
 			}
 			case 2:{
-				s.nomeServico = ("Pedicure");
-				s.setsGenero(c.getGenero());
-				s.setCont(1);
-				servicos.add(s);
+				servico.nomeServico = ("Pedicure");
+				servico.setsGenero(c.getGenero());
+				servico.setCont(1);
+				servicos.add(servico);
 				break;
 			}
 			case 3:{
-				s.nomeServico = ("Pintura de cabelo");
-				s.setsGenero(c.getGenero());
-				s.setCont(1);
-				servicos.add(s);
+				servico.nomeServico = ("Pintura de cabelo");
+				servico.setsGenero(c.getGenero());
+				servico.setCont(1);
+				servicos.add(servico);
 				break;
 			}
 			case 4:{
-				s.nomeServico = ("Remoção de rugas");
-				s.setsGenero(c.getGenero());
-				s.setCont(1);
-				servicos.add(s);
+				servico.nomeServico = ("Remoção de rugas");
+				servico.setsGenero(c.getGenero());
+				servico.setCont(1);
+				servicos.add(servico);
 				break;
 			}
 			case 5:{
-				s.nomeServico = ("Remoção de machas na pele");
-				s.setsGenero(c.getGenero());
-				s.setCont(1);
-				servicos.add(s);
+				servico.nomeServico = ("Remoção de machas na pele");
+				servico.setsGenero(c.getGenero());
+				servico.setCont(1);
+				servicos.add(servico);
 				break;
 			}
 			case 6:{
-				s.nomeServico = ("Aplicação de botox");
-				s.setsGenero(c.getGenero());
-				s.setCont(1);
-				servicos.add(s);
+				servico.nomeServico = ("Aplicação de botox");
+				servico.setsGenero(c.getGenero());
+				servico.setCont(1);
+				servicos.add(servico);
 				break;
 			}
 			case 7:{
-				s.nomeServico = ("Tratamento para emagrecimento");
-				s.setsGenero(c.getGenero());
-				s.setCont(1);
-				servicos.add(s);
+				servico.nomeServico = ("Tratamento para emagrecimento");
+				servico.setsGenero(c.getGenero());
+				servico.setCont(1);
+				servicos.add(servico);
 				break;
 			}
 			case 8:{
-				s.nomeServico = ("Redução de medidas");
-				s.setsGenero(c.getGenero());
-				s.setCont(1);
-				servicos.add(s);
+				servico.nomeServico = ("Redução de medidas");
+				servico.setsGenero(c.getGenero());
+				servico.setCont(1);
+				servicos.add(servico);
 				break;
 			}
 			case 9:{
-				s.nomeServico = ("Corte de cabelo");
-				s.setsGenero(c.getGenero());
-				s.setCont(1);
-				servicos.add(s);
+				servico.nomeServico = ("Corte de cabelo");
+				servico.setsGenero(c.getGenero());
+				servico.setCont(1);
+				servicos.add(servico);
 				break;
 			}
 			case 10:{
-				s.nomeServico = ("Modelagem");
-				s.setsGenero(c.getGenero());
-				s.setCont(1);
-				servicos.add(s);
+				servico.nomeServico = ("Modelagem");
+				servico.setsGenero(c.getGenero());
+				servico.setCont(1);
+				servicos.add(servico);
 				break;
 			}
 			case 11:{
-				s.nomeServico = ("Corte de barba");
-				s.setsGenero(c.getGenero());
-				s.setCont(1);
-				servicos.add(s);
+				servico.nomeServico = ("Corte de barba");
+				servico.setsGenero(c.getGenero());
+				servico.setCont(1);
+				servicos.add(servico);
 				break;
 			}
 			case 12:{
-				s.nomeServico = ("Tratamento para queda de cabelo");
-				s.setsGenero(c.getGenero());
-				s.setCont(1);
-				servicos.add(s);
+				servico.nomeServico = ("Tratamento para queda de cabelo");
+				servico.setsGenero(c.getGenero());
+				servico.setCont(1);
+				servicos.add(servico);
 				break;
 			}
 			case 13:{
-				s.nomeServico = ("Venda de produtos especializados");
-				s.setsGenero(c.getGenero());
-				s.setCont(1);
-				servicos.add(s);
+				servico.nomeServico = ("Venda de produtos especializados");
+				servico.setsGenero(c.getGenero());
+				servico.setCont(1);
+				servicos.add(servico);
 				break;
 			}
 			case 0:{
 				op = 0;
+				c.setS(servicos);
 				break;
 			}
 			}

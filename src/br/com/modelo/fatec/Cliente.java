@@ -10,6 +10,15 @@ public class Cliente implements Serializable {
 	public String telefone;
 	public String dtNascimento;
 	public String genero;
+	public Servico servico;
+	public Servico getServico() {
+		return servico;
+	}
+
+	public void setServico(Servico servico) {
+		this.servico = servico;
+	}
+
 	public int idade;
 	public List<Servico> s = new ArrayList<Servico>();
 
