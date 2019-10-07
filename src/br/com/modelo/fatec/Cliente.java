@@ -1,22 +1,16 @@
 package br.com.modelo.fatec;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cliente {
+@SuppressWarnings("serial")
+public class Cliente implements Serializable {
 	public String nome;
 	public String telefone;
 	public String dtNascimento;
 	public String genero;
 	public int idade;
-	public long id;
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public List<String> getServicos() {
 		return servicos;

@@ -1,5 +1,6 @@
 package br.com.modelo.fatec;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -13,9 +14,10 @@ import java.util.function.Predicate;
 
 import br.com.negocio.fatec.Controle;
 
-public class Agenda {
+@SuppressWarnings("serial")
+public class Agenda implements Serializable{
 	public List<Cliente> clientes = new ArrayList<Cliente>();
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+	transient SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 	
 
 	public void listarClientes() {
@@ -63,8 +65,6 @@ public class Agenda {
 		c.telefone = (ctrl.texto());
 		System.out.println("Por favor, digite a data de seu nascimento (AAAA/MM/DD)");
 		c.dtNascimento = (ctrl.texto());
-		LocalDate a2 = LocalDate.now();
-		c.id = a2.toEpochDay();
 		c.idade = conversaoIdade(c.dtNascimento);
 		System.out.println("Por favor, digite o seu genero: ");
 		c.genero = (ctrl.texto());
